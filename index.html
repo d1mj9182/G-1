@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"/>
   <style>
     body {
-      background: #111 !important; /* 전체 배경 블랙 */
+      background: #111 !important;
       font-family: 'Pretendard', Arial, sans-serif;
     }
     .card-box {
@@ -15,7 +15,7 @@
       max-width: 420px;
       margin: 48px auto 0 auto;
       border-radius: 18px;
-      background: #fff;     /* 카드(폼) 영역만 흰색 */
+      background: #fff;
       box-shadow: 0 8px 24px rgba(0,0,0,0.17);
       overflow: hidden;
       display: flex;
@@ -57,7 +57,6 @@
       border-radius: 0;
       aspect-ratio: 420/500;
     }
-    /* Swiper 점(페이지네이션) - 골드, 더 작고 더 아래 */
     .swiper-pagination {
       bottom: -26px !important;
       position: absolute !important;
@@ -84,7 +83,6 @@
       transform: scale(1.35);
       opacity: 1;
     }
-    /* 골드 화살표(동그라미X, 그라데이션 SVG) */
     .swiper-button-next,
     .swiper-button-prev {
       color: transparent !important;
@@ -131,7 +129,6 @@
       .swiper-pagination-bullet { width: 7px; height: 7px; margin: 0 2px !important; }
       .swiper-pagination-bullet-active { transform: scale(1.21);}
     }
-    /* 입력폼, 기본 흰배경/진한 폰트 */
     .form-area {
       width: 100%;
       box-sizing: border-box;
@@ -142,7 +139,7 @@
       gap: 12px;
     }
     .form-area label { font-weight: 700; margin-bottom: 3px; font-size: 1.06rem;}
-    .form-area input[type="text"], .form-area input[type="tel"] {
+    .form-area input[type="text"], .form-area input[type="tel"], .form-area select {
       width: 100%;
       padding: 13px 14px;
       border: 1.7px solid #e5c100;
@@ -157,12 +154,20 @@
       margin-bottom: 0;
       letter-spacing: 0.02em;
     }
-    .form-area input:focus {
+    .form-area input:focus, .form-area select:focus {
       border: 1.9px solid #FFD700;
       background: #fffbe6;
       color: #bfa333;
     }
-    /* 상담신청 버튼: 골드바 메탈릭 느낌 (그라데이션+광택, 두껍게, 테두리 골드) */
+    .form-area select {
+      cursor: pointer;
+      appearance: none;
+      -webkit-appearance: none;
+      background-image: url("data:image/svg+xml;utf8,<svg fill='gray' height='16' viewBox='0 0 24 24' width='16' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>");
+      background-repeat: no-repeat;
+      background-position: right 12px center;
+      background-size: 19px;
+    }
     .form-area button {
       width: 100%;
       padding: 17px 0 15px 0;
@@ -303,7 +308,25 @@
       <input type="text" id="name" name="name" placeholder="이름 입력" required />
       <label for="phone">연락처</label>
       <input type="tel" id="phone" name="phone" placeholder="010-0000-0000" pattern="^01[016789]-\\d{3,4}-\\d{4}$" required />
-
+      <label for="reserveTime">상담 예약 시간</label>
+      <select id="reserveTime" name="reserveTime" required>
+        <option value="" disabled selected>시간 선택</option>
+        <option value="08">08시</option>
+        <option value="09">09시</option>
+        <option value="10">10시</option>
+        <option value="11">11시</option>
+        <option value="12">12시</option>
+        <option value="13">13시</option>
+        <option value="14">14시</option>
+        <option value="15">15시</option>
+        <option value="16">16시</option>
+        <option value="17">17시</option>
+        <option value="18">18시</option>
+        <option value="19">19시</option>
+        <option value="20">20시</option>
+        <option value="21">21시</option>
+        <option value="22">22시</option>
+      </select>
       <!-- 개인정보 동의 체크+펼침 -->
       <div class="agree-wrap">
         <div class="agree-row">
